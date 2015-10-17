@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Checkpoint Report}
+\author{Harry Roscoe, Daniel Graaf, Sahil Parekh, Haochen Yang}
+
+\maketitle
+
+\section{Introduction}
+\\
+
+The task given to us for Part I was to create an emulator, in C, for the ARM architecture, such that it could be run on a Raspberry Pi. We began the project by reading through Part I of the specification. After considering how long each part would take, we divided up tasks so they were roughly equally long, and began the work.
+
+Dan and Harry created the initial main and memory loading functions, which we felt are the foundations of Part I. The pipeline shortly followed, creating the basis of the emulator.
+
+We set to work immediately, which may have been unwise as we soon discovered problems in our code which took significant time to correct. We managed to fix these by getting together in the labs and started making several auxiliary functions as smaller functions are more easy to debug. We will discuss these further.
+\\
+
+\section{Emulator Structure}
+\\
+
+We felt the best way to structure the emulator was to group each instruction and its respective helper functions, and then have the system functions (i.e. memoryLoader, pipeLine, main) towards the end, as they relied on the functions above. The grouping made work greatly efficient as we could easily direct our focus to the general areas of code that weren't working properly. \\
+Difficulties arose in implementing the pipeline correctly as registers were failing to load and the PC counter was wildly inaccurate. We eventually fixed this by creating explicit functions for decode and execute, ensuring the two processes were occurring in separate cycles.\\
+We also made several functions to aid our understanding of what was happening during the processes e.g. basic printing functions for instructions and registers, which were necessary for the test cases anyway. On top of that, a few functions created early on helped facilitate the other functions, especially those involved with execution.\\
+extractBits is an essential function created by Harry which takes an instruction and returns the bits required. We used it in the majority of our execution functions for the selection of various control and condition bits.\\
+condCheck provided useful as all execution functions had the same condition checks to carry out.\\
+maskMaker was also simple yet effective as it provided us an easy way to obtain masks, which were used for a wide variety of objectives such as extracting bits, shifting, and storing.
+\\
+
+
+
+\section{Communication}
+\\
+
+Communication between members was vital. We consistently met up as a group, kept in constant contact when not together, and aided each other with any problems that arose.\\
+Git was very useful in this respect. Although it took time to get used to, we were soon reliant on the system to give us the latest code, and regular commits ensured none of us was working with an outdated version. We believe communication is the key to the success we have found so far and strongly intend to continue this throughout the project.
+\\
+
+\section{Looking Ahead}
+\\
+
+We intend to complete the emulator by the weekend and then start on Part II of the project, the assembler. Many of the auxiliary functions used for the emulator, some of which are listed above, will be of great use for this part, so we are in a good position to hit the ground running. Regarding the division of work, we believe we should change the roles we had for designing the emulator. This is so to get as well-rounded a view of the project as we individually can, as well as aid the rest of the group if they come across any difficulties that were solved during Part I. Moreover, we will also work more closely together rather than solely focus on our own parts before coming together like we did with the emulator. Much time was spent going back over poor code and fixing errors which could have been easily spotted by others before anything was written up. We are optimistic with learning from our mistakes going forward and accept any arising challenges.
+
+In conclusion, we believe this group is working well given its deadlines and solving problems efficiently and with good communication of ideas. We are still unsure of our extension but hope to have a clearer idea of it after finishing Part II. Group cohesion will of course be crucial as there will be no set specification to adhere to, therefore splitting tasks up and making sure it all works at the end will require solid understanding from all group members.
+\end{document}
+
+
+ 
+ 
+ 

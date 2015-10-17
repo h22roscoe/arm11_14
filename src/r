@@ -1,0 +1,2 @@
+./assemble ext.s kernel.img
+(cp kernel.img /media/dg1613/boot/ && umount /media/dg1613/*) || echo "SOMETHING IS ABSOLUTELY FUCKED"
