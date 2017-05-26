@@ -649,19 +649,6 @@ instr_t *b(char *operands) {
 }
 
 void write_instr_little_end(FILE *fp, instr_t *instr) {
-    // uint8_t ms_byte = extract_bits(instr->general_rep, 31, 8);
-    // uint8_t second_byte = extract_bits(instr->general_rep, 23, 8);
-    // uint8_t third_byte = extract_bits(instr->general_rep, 15, 8);
-    // uint8_t ls_byte = extract_bits(instr->general_rep, 7, 8);
-    // printf("Whole instr: %08x\n", instr->general_rep);
-    // fwrite(&ls_byte, sizeof(uint8_t), 1, fp);
-    // printf("LS byte: %02x\n", ls_byte);
-    // fwrite(&third_byte, sizeof(uint8_t), 1, fp);
-    // printf("Next: %02x\n", third_byte);
-    // fwrite(&second_byte, sizeof(uint8_t), 1, fp);
-    // printf("Next: %02x\n", second_byte);
-    // fwrite(&ms_byte, sizeof(uint8_t), 1, fp);
-    // printf("MS byte: %02x\n", ms_byte);
     fwrite(instr, sizeof(uint32_t), 1, fp);
 }
 
